@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using Xunit;
 using FluentAssertions;
+using BasicVehicleIncidentTracker.Services;
 
 namespace VehicleIncidentTesting
 {
@@ -52,6 +53,54 @@ namespace VehicleIncidentTesting
                 var incidents = _dbContext.VehicleIncidents.ToList();
                 incidents.Should().ContainSingle(x => x.VIN == "1FTNW21P04EB82562");
             }
+        }
+
+        [Fact]
+        public void TestGetAttributes()
+        {
+            VINAttributes attributes;
+            VINDecodeService decodeService = new VINDecodeService();
+
+            attributes = decodeService.GetAttributes("1FTNW21P04EB82562").Result;
+
+            attributes.Model.Should().Equals("F-250");
+            attributes.Make.Should().Equals("FORD");
+            attributes.Year.Should().Equals(2004);
+
+        }
+
+        [Fact]
+        public void TestAttributes_HoldLookedUpValuesInMemory()
+        {
+            using (var _dbContext = new VehicleIncidentContext(CreateNewContextOptions()))
+            {
+
+                VINAttributes attributes;
+                VINDecodeService decodeService = new VINDecodeService();
+                string vinToLookup = "1FTNW21P04EB82562";
+
+                attributes = decodeService.GetAttributes(vinToLookup).Result;
+                _dbContext.VINAttributes.Add(attributes);
+                _dbContext.SaveChanges();
+
+                _dbContext.ContainsAttributes(vinToLookup).Should().BeTrue();
+            }
+
+        }
+
+        [Fact]
+        public void TestDecodingFakeVIN()
+        {
+            VINAttributes attributes;
+            VINDecodeService decodeService = new VINDecodeService();
+            string vinToLookup = "ABCDEFG";
+
+            attributes = decodeService.GetAttributes(vinToLookup).Result;
+
+            attributes.Model.Should().BeNull();
+            attributes.Make.Should().BeNull();
+            attributes.Year.Should().Equals(0);
+
         }
     }
 }
