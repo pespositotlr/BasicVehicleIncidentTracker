@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicVehicleIncidentTracker", "BasicVehicleIncidentTracker\BasicVehicleIncidentTracker.csproj", "{E9C50FFA-BEE1-42F6-A249-8466B6253735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleIncidentTesting", "VehicleIncidentTesting\VehicleIncidentTesting.csproj", "{7D24C388-CECD-4432-A055-A394A3F071D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9C50FFA-BEE1-42F6-A249-8466B6253735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C50FFA-BEE1-42F6-A249-8466B6253735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C50FFA-BEE1-42F6-A249-8466B6253735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C50FFA-BEE1-42F6-A249-8466B6253735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D24C388-CECD-4432-A055-A394A3F071D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D24C388-CECD-4432-A055-A394A3F071D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D24C388-CECD-4432-A055-A394A3F071D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D24C388-CECD-4432-A055-A394A3F071D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B2E013F-8E58-47A3-9035-39163FDA7FDD}
+	EndGlobalSection
+EndGlobal
