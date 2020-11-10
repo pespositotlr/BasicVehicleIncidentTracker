@@ -38,7 +38,6 @@ export const executeValidationAndReturnFormElement = (event: React.ChangeEvent<H
     let formElement = { ...updatedOwnerForm[id] };
 
     if (formElement.element == "datePicker") {
-        console.log("formElement: datePicker")
         formElement.value = event;
     } else {
         formElement.value = event.target.value;
@@ -50,9 +49,6 @@ export const executeValidationAndReturnFormElement = (event: React.ChangeEvent<H
 
     formElement.valid = validationResponse.isValid;
     formElement.errorMessage = validationResponse.errorMessage;
-
-    console.log("formElement" + formElement.element)
-    console.log(formElement)
 
     return formElement;
 }

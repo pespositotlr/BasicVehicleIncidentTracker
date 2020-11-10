@@ -47,7 +47,7 @@ class ViewIncidents extends React.Component<VehicleIncidentProps, VehicleInciden
      this.setState({ globalSearch: event.target.value })
   }
 
-  setStartDate(startDate: Date | null | undefined) {
+  setStartDate(startDate: any) {
       this.setState({ startDateFilter: startDate })
   }
 
@@ -61,10 +61,6 @@ class ViewIncidents extends React.Component<VehicleIncidentProps, VehicleInciden
   }
 
   private getFilteredIncidents(incidents: VehicleIncident[]) {
-      console.log("getFilteredIncidents");
-      console.log(this.state.globalSearch);
-      console.log(this.state.startDateFilter);
-      console.log(this.state.endDateFilter);
       incidents = incidents.filter(x => x.vin.includes(this.state.globalSearch));
       if (this.state.startDateFilter) {
           incidents = incidents.filter(d => new Date(d.dateTime) >= this.state.startDateFilter!);
@@ -140,10 +136,10 @@ class ViewIncidents extends React.Component<VehicleIncidentProps, VehicleInciden
             <tr key={vehicleIncident.id}>
                 <td>{vehicleIncident.vin}</td>
                 <td>{new Date(vehicleIncident.dateTime).toLocaleString()}</td>
-                <td>{vehicleIncident.note}</td>
-                <td>{vehicleIncident.make}</td>
-                <td>{vehicleIncident.model}</td>
-                <td>{vehicleIncident.year}</td>
+                <td style={{ maxWidth: 300, wordWrap: 'break-word' }}>{vehicleIncident.note !== "" ? vehicleIncident.note : "(None)"}</td>
+                <td>{vehicleIncident.make !== null ? vehicleIncident.make : "N/A"}</td>
+                <td>{vehicleIncident.model !== null ? vehicleIncident.model : "N/A"}</td>
+                <td>{vehicleIncident.year > 0 ? vehicleIncident.year : "N/A"}</td>
             </tr>
           )}
         </tbody>

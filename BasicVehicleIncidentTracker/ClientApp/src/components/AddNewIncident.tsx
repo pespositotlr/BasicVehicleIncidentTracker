@@ -36,9 +36,6 @@ class AddIncident extends React.Component<AddIncidentProps, IState> {
         updatedIncidentForm[id] = formUtilityActions.executeValidationAndReturnFormElement(event, updatedIncidentForm, id);
 
         const counter = formUtilityActions.countInvalidElements(updatedIncidentForm);
-        console.log("valid counter: ", counter);
-        console.log("updatedIncidentForm");
-        console.log(updatedIncidentForm);
         this.setState({ createIncidentForm: updatedIncidentForm, isFormValid: counter === 0 })
     }
 

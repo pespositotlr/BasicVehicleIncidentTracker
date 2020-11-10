@@ -7,12 +7,12 @@ export const returnInputConfiguration = () => {
         },
         dateTime: {
             element: 'datePicker', type: 'text', value: new Date(),
-            validation: { required: false }, valid: false, touched: false,
+            validation: { required: false }, valid: true, touched: false,
             errorMessage: '', label: 'Date and Time:'
         },
         note: {
             element: 'input', type: 'text', value: '',
-            validation: { required: false, maxLength: 500 }, valid: false, touched: false,
+            validation: { required: false, maxLength: 500 }, valid: true, touched: false,
             errorMessage: '', label: 'Note:'
         }
     }
